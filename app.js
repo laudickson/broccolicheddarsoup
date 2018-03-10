@@ -3,33 +3,38 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var mongoos = require('mongoose');
 
+mongoose.Promise = require('bluebird');
+mongoose.connect('mongodb://localhost/broccolicheddarsoup', { useMongoClient: true, promiseLibrary: require('bluebird')})
+  .then (() => console.log('connection successful'))
+  .catch((error) => console.error(error));
 var book = require('./routes/book');
 var app = express();
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded( { 'extended': 'false' } ))
+app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/api/book', book);
 
-app.use(function(request, response, next){
-  var error = new Error("This is a 404, this page unfortunately hasn't been built out yet. sorry :(");
-  error.status = 404;
-  next(error);
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
-app.use(function(error, request, response, next){
-  response.locals.message = error.message;
-  if ( request.app.get('env') === 'development' ){
-    response.locals.error = error;
-  } else {
-    response.locals.error = {};
-  }
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  response.status(error.status || 500);
-  response.render('error');
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
 });
 
 module.exports = app;

@@ -1,17 +1,30 @@
 import React, { Component } from "react";
+import {
+  Route,
+  NavLink,
+  HashRouter
+} from "react-router-dom";
+import Home from "./Home";
+import Reviews from "./Reviews";
+import Submit from "./Submit";
 
 class Main extends Component {
   render() {
     return(
-      <div>
-        <h1>Broccoli Cheddar Reviews</h1>
-        <ul className="header">
-          <li><a href="/">Home</a></li>
-          <li><a href="/reviews">Reviews</a></li>
-          <li><a href="/submit">Submit Your Own</a></li>
-        </ul>
-        <div className="content"></div>
-      </div>
+      <HashRouter>
+        <div>
+          <ul className='header'>
+            <li><NavLink exact to='/'>Home</NavLink></li>
+            <li><NavLink to='/reviews'>Reviews</NavLink></li>
+            <li><NavLink to='submit'>Submit Your Own</NavLink></li>
+          </ul>
+          <div className='content'>
+            <Route exact path="/" component={Home}/>
+            <Route path="/reviews" component={Reviews}/>
+            <Route path="/submit" component={Submit}/>
+          </div>
+        </div>
+      </HashRouter>
     );
   }
 }

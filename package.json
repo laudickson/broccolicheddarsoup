@@ -1,24 +1,27 @@
 {
-  "name": "broccolicheddarsoup",
+  "name": "react-ui",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bluebird": "^3.5.1",
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "materialize-css": "^0.100.2",
-    "mongoose": "^5.0.9",
-    "morgan": "^1.9.0",
+    "node-sass-chokidar": "^1.2.2",
+    "npm-run-all": "^4.1.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1",
-    "serve-favicon": "^2.4.5"
+    "typed.js": "^2.0.6"
+  },
+  "devDependencies": {
+    "react-scripts": "1.1.1"
   },
   "scripts": {
-    "start": "node ./bin/www",
-    "build": "react-scripts build",
+    "build": "npm-run-all build-css build-app",
+    "build-app": "react-scripts build",
+    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+    "eject": "react-scripts eject",
+    "start": "npm-run-all -p watch-css start-app",
+    "start-app": "react-scripts start",
+    "start:server": "node server",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive"
   }
 }

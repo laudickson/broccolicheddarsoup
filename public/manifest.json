@@ -1,0 +1,8 @@
+{
+  "short_name": "broccoli cheddar soup reviews",
+  "name": "Reviews on broccoli cheddar soups around the area",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

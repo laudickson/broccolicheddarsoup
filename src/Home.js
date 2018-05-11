@@ -5,10 +5,9 @@ class Home extends Component {
   componentDidMount(){
     const options = {
       strings: [
-        '^1000 Hi there! ^1000 Welcome to a blog where I give my honest opinion about broccoli cheddar soups around the area (maybe even around the world one day)'
+        '^1000 Hi there! ^1000 \n Welcome to a blog where I give my honest opinion about broccoli cheddar soups around the area ^300 (maybe around the world too)!'
       ],
-      typeSpeed: 40,
-      backSpeed: 30
+      typeSpeed: 20
     };
 
     this.typed = new Typed(this.el, options);

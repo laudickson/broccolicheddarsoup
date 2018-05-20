@@ -1,4 +1,10 @@
-body{
+// fonts
+@import url('https://fonts.googleapis.com/css?family=Gothic+A1');
+
+// stylesheets
+@import 'stylesheets/typed';
+
+body {
   background-color: #FFCC00;
   padding: 20px;
   margin: 0;
@@ -9,23 +15,42 @@ h1, h2, p, ul, li {
 }
 
 .header {
-  background-color: #111;
   padding-top: 20px;
   padding-bottom: 20px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 
   .navigation-button {
     a {
-      color: #FFF;
+      color: black;
       padding: 20px;
       font-weight: bold;
       text-decoration: none;
+
+      &.active, &:hover {
+        color: white;
+      }
+
+      &:hover {
+        transition: 0.3s;
+      }
     }
   }
 }
 
-.content{
+.greeting-container {
+  height: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    margin: 0;
+    font-family: 'Gothic A1', sans-serif;
+  }
+}
+
+.content {
   padding: 20px;
 
   h2 {
@@ -39,17 +64,17 @@ h1, h2, p, ul, li {
 }
 
 .active {
-  background-color: #228B22; //#6B8E23 is also good choice
+  background-color: #228B22; //#6B8E23 is also good
 }
 
 
-.typed-cursor{
+.typed-cursor {
   opacity: 1;
   animation: typedjsBlink 0.7s infinite;
   -webkit-animation: typedjsBlink 0.7s infinite;
 }
 
-@keyframes typedjsBlink{
+@keyframes typedjsBlink {
   50% { opacity: 0.0; }
 }
 
@@ -59,7 +84,7 @@ h1, h2, p, ul, li {
   100% { opacity: 1; }
 }
 
-.typed-fade-out{
+.typed-fade-out {
   opacity: 0;
   transition: opacity .25s;
   -webkit-animation: 0;

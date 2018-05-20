@@ -5,7 +5,7 @@ class Home extends Component {
   componentDidMount(){
     const options = {
       strings: [
-        '^1000 Hi there! ^1000 \n Welcome to a blog where I give my honest opinion about broccoli cheddar soups around the area ^300 (maybe around the world too)!'
+        '^1000 Hi there! ^1000 \n Welcome to a blog where I give my honest opinion about broccoli cheddar soups around the area!'
       ],
       typeSpeed: 20
     };
@@ -20,7 +20,9 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <span ref={(el) => { this.el = el; }}/>
+        <div className='greeting-container'>
+          <span className='greeting' ref={(el) => { this.el = el; }}/>
+        </div>
       </div>
     );
   }

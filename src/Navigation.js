@@ -5,7 +5,6 @@ import {
   HashRouter
 } from 'react-router-dom';
 import Home from './Home';
-import Reviews from './Reviews';
 import Submit from './Submit';
 
 class Navigation extends Component {
@@ -18,15 +17,11 @@ class Navigation extends Component {
               <NavLink exact to='/'>Home</NavLink>
             </div>
             <div className='navigation-button'>
-              <NavLink to='/reviews'>Reviews</NavLink>
-            </div>
-            <div className='navigation-button'>
               <NavLink to='/submit'>Submit Your Own</NavLink>
             </div>
           </div>
           <div className='content'>
             <Route exact path="/" component={Home}/>
-            <Route path="/reviews" component={Reviews}/>
             <Route path="/submit" component={Submit}/>
           </div>
         </div>

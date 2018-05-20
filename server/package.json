@@ -1,0 +1,35 @@
+{
+  "name": "broccolicheddar-server",
+  "version": "1.0.0",
+  "description": "server for broccoli cheddar reviews",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsdlau/broccolicheddarsoup.git"
+  },
+  "keywords": [
+    "app",
+    "broccoli",
+    "cheddar",
+    "soup",
+    "reviews",
+    "server"
+  ],
+  "author": "dickson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsdlau/broccolicheddarsoup/issues"
+  },
+  "homepage": "https://github.com/tsdlau/broccolicheddarsoup#readme",
+  "dependencies": {
+    "babel-preset-es2015-node": "^6.1.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.1.1",
+    "morgan": "^1.9.0",
+    "source-map-support": "^0.5.6"
+  }
+}

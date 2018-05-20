@@ -1,4 +1,16 @@
-rome.typed-cursor {
+.typed-container {
+  height: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    margin: 0;
+    font-family: 'Gothic A1', sans-serif;
+  }
+}
+
+.typed-cursor {
   opacity: 1;
   animation: typedjsBlink 0.7s infinite;
   -webkit-animation: typedjsBlink 0.7s infinite;
@@ -12,4 +24,11 @@ rome.typed-cursor {
   0% { opacity: 1; }
   50% { opacity: 0.0; }
   100% { opacity: 1; }
+}
+
+.typed-fade-out {
+  opacity: 0;
+  transition: opacity .25s;
+  -webkit-animation: 0;
+  animation: 0;
 }

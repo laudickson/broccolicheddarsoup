@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import Review from '../models/review.server.model';
 
-export const getReview = (request, response) => {
+export const getReviews = (request, response) => {
   Review.find().exec((error, reviews) => {
     if(error){
       return response.json({ 'success': false, 'message': 'error' });

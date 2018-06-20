@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import logger from 'morgan';
 import mongoose from 'mongoose';
 import bb from 'express-busboy';
+import SourceMapSupport from 'source-map-support';
 
 import reviewRoutes from './routes/review.server.route';
 
@@ -20,14 +21,13 @@ app.use(function(request, response, next){
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended:true }));
-app.use(express.static(path.join(__direname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/broccolicheddarsoup', {
-  useMongoClient: true,
-});
+
+SourceMapSupport.install();
 
 app.use('/api', reviewRoutes);
 

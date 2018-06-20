@@ -1,7 +1,7 @@
 {
   "name": "broccolicheddar-server",
   "version": "1.0.0",
-  "description": "server for broccoli cheddar reviews",
+  "description": "server-side for broccoli cheddar reviews",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app_hooked.js"

@@ -1,0 +1,24 @@
+{
+  "name": "broccolicheddar-client",
+  "version": "1.0.0",
+  "description": "client-side for broccoli cheddar reviews",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "author": "",
+  "license": "ISC",
+  "proxy": "http://localhost:3001",
+  "dependencies": {
+    "react-bootstrap": "^0.32.1",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-bootstrap": "^0.24.4",
+    "react-router-redux": "^4.0.8",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
+  }
+}

@@ -1,13 +1,10 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 
-let Schema = mongoose.Schema({
-  createdAt:{
-    type: Date,
-    default: Date.now
-  },
-  image: String,
-  title: String,
-  text: String
-});
+const CommentsSchema = new Schema({
+  author: String,
+  text: String,
+}, { timestamps: true });
 
-export default mongoose.model('Review', Schema)
+
+export default mongoose.model('Comment', CommentsSchema);

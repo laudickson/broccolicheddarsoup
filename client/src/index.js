@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Main from "./Main";
+import CommentBox from './CommentBox';
+import registerServiceWorker from './registerServiceWorker'
 import "./stylesheets/index.css";
 
-ReactDOM.render(
-  <Main/>,
-  document.getElementById('root')
-);
+ReactDOM.render(<CommentBox />, document.getElementById('root'));
 
 registerServiceWorker();

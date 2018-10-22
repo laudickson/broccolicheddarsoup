@@ -48,7 +48,7 @@ class CommentBox extends Component {
       ...this.state.data.slice(i + 1),
     ];
     this.setState({ data });
-    fetch(`comments/${id}`, { method: 'DELETE' })
+    fetch(`/api/comments/${id}`, { method: 'DELETE' })
       .then(res => res.json()).then((res) => {
         if (!res.success) this.setState({ error: res.error });
       });
@@ -69,7 +69,7 @@ class CommentBox extends Component {
     const { author, text } = this.state;
     const data = [...this.state.data, { author, text, _id: Date.now().toString() }];
     this.setState({ data });
-    fetch('comments', {
+    fetch('/api/comments', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ author, text }),
@@ -81,7 +81,7 @@ class CommentBox extends Component {
 
   submitUpdatedComment = () => {
     const { author, text, updateId } = this.state;
-    fetch(`comments/${updateId}`, {
+    fetch(`/api/comments/${updateId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ author, text }),
@@ -92,7 +92,7 @@ class CommentBox extends Component {
   }
 
   loadCommentsFromServer = () => {
-    fetch('comments/')
+    fetch('/api/comments/')
       .then(data => data.json())
       .then((res) => {
         if (!res.success) this.setState({ error: res.error });

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
 import CommentList from './CommentList';
-import CommentForm from './CommentForm';
-import './stylesheets/CommentBox.css';
+import './stylesheets/Reviews.css';
 
-class CommentBox extends Component {
+class Reviews extends Component {
   constructor() {
     super();
     this.state = {
@@ -29,12 +28,6 @@ class CommentBox extends Component {
     this.pollInterval = null;
   }
 
-  onChangeText = (e) => {
-    const newState = { ...this.state };
-    newState[e.target.name] = e.target.value;
-    this.setState(newState);
-  }
-
   onUpdateComment = (id) => {
     const oldComment = this.state.data.find(c => c._id === id);
     if (!oldComment) return;
@@ -54,30 +47,6 @@ class CommentBox extends Component {
       });
   }
 
-  submitComment = (e) => {
-    e.preventDefault();
-    const { author, text, updateId } = this.state;
-    if (!author || !text) return;
-    if (updateId) {
-      this.submitUpdatedComment();
-    } else {
-      this.submitNewComment();
-    }
-  }
-
-  submitNewComment = () => {
-    const { author, text } = this.state;
-    const data = [...this.state.data, { author, text, _id: Date.now().toString() }];
-    this.setState({ data });
-    fetch('/api/comments', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ author, text }),
-    }).then(res => res.json()).then((res) => {
-      if (!res.success) this.setState({ error: res.error.message || res.error });
-      else this.setState({ author: '', text: '', error: null });
-    });
-  }
 
   submitUpdatedComment = () => {
     const { author, text, updateId } = this.state;
@@ -111,18 +80,9 @@ class CommentBox extends Component {
             handleUpdateComment={this.onUpdateComment}
           />
         </div>
-        <div className="form">
-          <CommentForm
-            author={this.state.author}
-            text={this.state.text}
-            handleChangeText={this.onChangeText}
-            submitComment={this.submitComment}
-          />
-        </div>
-        {this.state.error && <p>{this.state.error}</p>}
       </div>
     );
   }
 }
 
-export default CommentBox;
+export default Reviews;

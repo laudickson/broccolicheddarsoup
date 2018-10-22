@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CommentForm = props => (
+const SubmitForm = props => (
   <form onSubmit={props.submitComment}>
     <input
       type="text"
@@ -21,16 +21,16 @@ const CommentForm = props => (
   </form>
 );
 
-CommentForm.propTypes = {
+SubmitForm.propTypes = {
   submitComment: PropTypes.func.isRequired,
   handleChangeText: PropTypes.func.isRequired,
   text: PropTypes.string,
   author: PropTypes.string,
 };
 
-CommentForm.defaultProps = {
+SubmitForm.defaultProps = {
   text: '',
   author: '',
 };
 
-export default CommentForm;
+export default SubmitForm;

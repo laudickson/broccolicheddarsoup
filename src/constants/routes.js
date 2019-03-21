@@ -1,0 +1,11 @@
+export const ACCOUNT = '/account';
+export const ADMIN = '/admin';
+export const LANDING = '/';
+export const LOCATIONS = '/locations';
+export const HOME = '/home';
+export const PASSWORD_FORGET = '/pw-forget';
+export const REVIEWS = '/reviews';
+export const SIGN_IN = '/signin';
+export const SIGN_UP = '/signup';
+export const SIGN_OUT = '/signout';
+export const SUBMIT_REVIEW = '/submit_review';

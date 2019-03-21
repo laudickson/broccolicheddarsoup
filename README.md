@@ -1,1 +1,1 @@
-based in boston. powered by firebase + react. built out of the love for broccoli cheddar soups.
+based in boston. powered by FYR (firebase/yarn/react). built out of the love for broccoli cheddar soups.

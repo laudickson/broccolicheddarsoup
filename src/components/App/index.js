@@ -4,6 +4,8 @@ import {
   Route,
  } from 'react-router-dom';
 
+import 'stylesheets/App.scss';
+
 import Navigation from 'components/Navigation';
 
 const App = () => (
